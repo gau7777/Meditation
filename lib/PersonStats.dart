@@ -145,57 +145,54 @@ class PersonStatsState extends State<PersonStats> {
                         builder: (BuildContext context) {
                           return AlertDialog(
                             title: Text('Invite your buddy'),
-                            content: Column(
-                              children: <Widget>[
-                                Form(
-                                  key: _formKey,
-                                  child: TextFormField(
-                                    initialValue: '',
-                                    decoration: InputDecoration(
-                                      hintText: 'Email Address',
-                                    ),
-                                    validator: (String value) {
-                                      if (value.isEmpty ||
-                                          !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
-                                              .hasMatch(value)) {
-                                        return 'Please fill valid Email';
-                                      }
-                                      if (RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$')
-                                              .hasMatch(value) ||
-                                          value.endsWith(RegExp(
-                                                  r'^(?:[1-9]\d*|0)?(?:\.\d+)?$')
+                            content: Form(
+                              key: _formKey,
+                              child: TextFormField(
+                                initialValue: '',
+                                decoration: InputDecoration(
+                                  hintText: 'Email Address',
+                                ),
+                                validator: (String value) {
+                                  if (value.isEmpty ||
+                                      !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                                          .hasMatch(value)) {
+                                    return 'Please fill valid Email';
+                                  }
+                                  if (RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$')
+                                          .hasMatch(value) ||
+                                      value.endsWith(
+                                          RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$')
                                               .toString())) {
-                                        return 'Please fill valid Email';
-                                      }
-                                    },
-                                    onSaved: (String value) {},
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 60.0,
-                                  width: double.infinity,
-                                  child: RaisedButton(
-                                      elevation: 0.0,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(21.0)),
-                                      color: Colors.blueGrey,
-                                      child: Text(
-                                        'INVITE',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 15.0),
-                                      ),
-                                      onPressed: () {
-                                        if (!_formKey.currentState.validate()) {
-                                          return;
-                                        } else {
-                                          _formKey.currentState.save();
-                                        }
-                                      }),
-                                ),
-                              ],
+                                    return 'Please fill valid Email';
+                                  }
+                                },
+                                onSaved: (String value) {},
+                              ),
                             ),
+                            actions: <Widget>[
+                              SizedBox(
+                                height: 50.0,
+                                width: 120.0,
+                                child: RaisedButton(
+                                    elevation: 0.0,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(21.0)),
+                                    color: Colors.blueGrey,
+                                    child: Text(
+                                      'INVITE',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15.0),
+                                    ),
+                                    onPressed: () {
+                                      if (!_formKey.currentState.validate()) {
+                                        return;
+                                      } else {
+                                        _formKey.currentState.save();
+                                      }
+                                    }),
+                              ),
+                            ],
                           );
                         });
                   },

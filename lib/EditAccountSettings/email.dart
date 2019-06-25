@@ -67,6 +67,7 @@ class EditEmailState extends State<EditEmail> {
                     ),
                     TextFormField(
                       initialValue: '.........',
+                      obscureText: true,
                       decoration: new InputDecoration(
                         hintText: "Password",
                       ),

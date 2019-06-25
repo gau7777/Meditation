@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:meditation/AccountSettings.dart';
+import 'package:meditation/policy.dart';
+import 'package:meditation/tc.dart';
 
 class PersonSettings extends StatefulWidget {
   @override
@@ -54,6 +56,12 @@ class PersonSettingsState extends State<PersonSettings> {
                   fontWeight: FontWeight.bold,
                   fontSize: 17.0),
             ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => TermsConditions()));
+            },
           ),
           ListTile(
             leading: Text(
@@ -63,6 +71,12 @@ class PersonSettingsState extends State<PersonSettings> {
                   fontWeight: FontWeight.bold,
                   fontSize: 17.0),
             ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => Policy()));
+            },
           ),
           Expanded(
             child: Container(

@@ -5,15 +5,15 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/widgets.dart';
 
-class Breathing extends StatefulWidget {
+class CompleteMeditation extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return BreathingState();
+    return CompleteMeditationState();
   }
 }
 
-class BreathingState extends State<Breathing> {
+class CompleteMeditationState extends State<CompleteMeditation> {
   ScrollController controller;
   bool isVisible;
   bool visible;
@@ -110,7 +110,7 @@ class BreathingState extends State<Breathing> {
                 Container(
                   child: ClipRRect(
                     child: Image.asset(
-                      'assets/breathing.jpeg',
+                      'assets/completemeditation.png',
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
@@ -127,7 +127,7 @@ class BreathingState extends State<Breathing> {
                   alignment: Alignment.centerLeft,
                   height: 50.0,
                   child: Text(
-                    'Breathing Meditation',
+                    'Complete Meditation',
                     style: TextStyle(
                         color: Colors.black54,
                         fontWeight: FontWeight.bold,
@@ -138,7 +138,7 @@ class BreathingState extends State<Breathing> {
                   alignment: Alignment.topLeft,
                   height: 50.0,
                   child: Text(
-                    '5 MIN',
+                    '19 MIN',
                     style: TextStyle(color: Colors.black45, fontSize: 17.0),
                   ),
                 ),

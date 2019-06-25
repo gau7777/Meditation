@@ -20,10 +20,11 @@ dependencies:
   flutter:
     sdk: flutter
   connectivity: ^0.4.3+2
-  flutter_statusbarcolor:
+  flutter_statusbarcolor:  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  
   
 
 dev_dependencies:
@@ -46,12 +47,21 @@ flutter:
   assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
-   - assets/food.jpg
-   - assets/goldentemple.jpeg
    - assets/happ.jpeg
-   - assets/myprofilelogo.jpg
-   - assets/profilelogo.jpg
    - assets/clock.png
+   - assets/breathing.jpeg
+   - assets/bodyscan.jpeg
+   - assets/bodysound.jpeg
+   - assets/breathsoundbody.jpeg
+   - assets/kindness.jpeg
+   - assets/difficulties.jpeg
+   - assets/completemeditation.png
+   - assets/bodyscansleep.jpeg
+   - assets/basic.jpeg
+   - assets/intermediate.jpeg
+   - assets/advanced.jpeg
+   - assets/meditation.jpeg
+   - assets/meditate.gif
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

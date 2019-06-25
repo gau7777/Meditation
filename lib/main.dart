@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:meditation/signup.dart';
+import 'package:meditation/welcome.dart';
 import 'home.dart';
 import 'person.dart';
 import 'package:flutter/painting.dart';
@@ -8,7 +10,7 @@ import 'package:flutter/services.dart';
 void main() {
   runApp(MaterialApp(
       theme: ThemeData(accentColor: Colors.white),
-      home: MyApp(),
+      home: Welcome(),
       debugShowCheckedModeBanner: false));
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.white10,
@@ -63,26 +65,22 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                 backgroundColor: Colors.white,
                 icon: Icon(
                   Icons.home,
-                  color: curIndex == 0 ? Colors.green[400] : Colors.blueGrey,
+                  color: curIndex == 0 ? Colors.blueGrey : Colors.grey,
                 ),
                 title: new Text('Home',
                     style: new TextStyle(
                         fontSize: 12.0,
-                        color: curIndex == 0
-                            ? Colors.green[400]
-                            : Colors.blueGrey))),
+                        color: curIndex == 0 ? Colors.blueGrey : Colors.grey))),
             new BottomNavigationBarItem(
                 backgroundColor: Colors.white,
                 icon: Icon(
                   Icons.person,
-                  color: curIndex == 1 ? Colors.green[400] : Colors.blueGrey,
+                  color: curIndex == 1 ? Colors.blueGrey : Colors.grey,
                 ),
                 title: new Text('Kaushal',
                     style: new TextStyle(
                         fontSize: 12.0,
-                        color: curIndex == 1
-                            ? Colors.green[400]
-                            : Colors.blueGrey))),
+                        color: curIndex == 1 ? Colors.blueGrey : Colors.grey))),
           ]),
       body: currentPage,
     );

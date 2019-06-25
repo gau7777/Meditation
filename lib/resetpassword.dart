@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
-class EditPassword extends StatefulWidget {
+class ResetPass extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return EditPasswordState();
+    return ResetPassState();
   }
 }
 
-class EditPasswordState extends State<EditPassword> {
+class ResetPassState extends State<ResetPass> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class EditPasswordState extends State<EditPassword> {
         ),
         centerTitle: true,
         title: Text(
-          'Change Password',
+          'Reset Password',
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -43,35 +43,27 @@ class EditPasswordState extends State<EditPassword> {
                   children: <Widget>[
                     TextFormField(
                       initialValue: '',
-                      obscureText: true,
                       decoration: new InputDecoration(
-                        hintText: "Current Password",
+                        hintText: "Email Address",
                       ),
                       validator: (String value) {
-                        if (value.isEmpty) {
-                          return 'Please fill Password';
+                        if (value.isEmpty ||
+                            !RegExp(r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                                .hasMatch(value)) {
+                          return 'Please fill valid Email';
+                        }
+                        if (RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$')
+                                .hasMatch(value) ||
+                            value.endsWith(
+                                RegExp(r'^(?:[1-9]\d*|0)?(?:\.\d+)?$')
+                                    .toString())) {
+                          return 'Please fill valid Email';
                         }
                       },
                       onSaved: (String value) {},
                     ),
                     SizedBox(
-                      height: 10.0,
-                    ),
-                    TextFormField(
-                      initialValue: '',
-                      obscureText: true,
-                      decoration: new InputDecoration(
-                        hintText: "Password (8+ characters)",
-                      ),
-                      validator: (String value) {
-                        if (value.isEmpty) {
-                          return 'Please fill Password';
-                        }
-                      },
-                      onSaved: (String value) {},
-                    ),
-                    SizedBox(
-                      height: 10.0,
+                      height: 20.0,
                     ),
                     SizedBox(
                       height: 70.0,
@@ -79,10 +71,10 @@ class EditPasswordState extends State<EditPassword> {
                       child: RaisedButton(
                           elevation: 0.0,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(21.0)),
+                              borderRadius: BorderRadius.circular(25.0)),
                           color: Colors.blueGrey,
                           child: Text(
-                            'SAVE',
+                            'SEND',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 15.0),
                           ),
@@ -93,27 +85,6 @@ class EditPasswordState extends State<EditPassword> {
                               _formKey.currentState.save();
                             }
                           }),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    SizedBox(
-                      height: 70.0,
-                      width: double.infinity,
-                      child: RaisedButton(
-                        elevation: 0.0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(21.0)),
-                        color: Colors.white,
-                        child: Text(
-                          'Cancel',
-                          style:
-                              TextStyle(color: Colors.blueGrey, fontSize: 15.0),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
                     ),
                   ],
                 ),
